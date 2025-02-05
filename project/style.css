@@ -1,0 +1,227 @@
+:root {
+    --primary-color: #ff69b4;
+    --secondary-color: #ff9ecd;
+    --background-color: #fff0f5;
+    --text-color: #4a4a4a;
+    --neon-glow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-color), #fff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: var(--neon-glow);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.mood-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.mood-btn {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.mood-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 105, 180, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.mood-btn:hover .btn-glow {
+    transform: translateX(100%);
+}
+
+.playlist-container {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.playlist-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+    transform-origin: top;
+    transition: all 0.3s ease;
+}
+
+.playlist-card.hidden {
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff4499;
+}
+
+.playlist-content {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.playlist-content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Glitter Animation */
+.glitter-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glitter {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: glitter 3s linear infinite;
+}
+
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    font-size: 1.5rem;
+    animation: float 6s linear infinite;
+    z-index: 0;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color),
+                     0 0 20px var(--primary-color), 0 0 25px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--primary-color),
+                     0 0 40px var(--primary-color), 0 0 50px var(--primary-color);
+    }
+}
+
+@keyframes glitter {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .mood-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .mood-btn {
+        padding: 0.8rem 1.5rem;
+    }
+}

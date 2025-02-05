@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Melodies ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glitter-container"></div>
+    
+    <div class="container">
+        <h1 class="title">Mood Melodies ✨</h1>
+        <p class="subtitle">Pick a mood and let the music speak to your heart 💖</p>
+
+        <div class="mood-container">
+            <button class="mood-btn" data-mood="happy">
+                Happy 🌟
+                <span class="btn-glow"></span>
+            </button>
+            <button class="mood-btn" data-mood="romantic">
+                Romantic 💝
+                <span class="btn-glow"></span>
+            </button>
+            <button class="mood-btn" data-mood="chill">
+                Chill 🌙
+                <span class="btn-glow"></span>
+            </button>
+            <button class="mood-btn" data-mood="energetic">
+                Energetic ⚡
+                <span class="btn-glow"></span>
+            </button>
+            <button class="mood-btn" data-mood="dreamy">
+                Dreamy 🌈
+                <span class="btn-glow"></span>
+            </button>
+        </div>
+
+        <div class="playlist-container" id="playlistContainer">
+            <div class="playlist-card hidden" id="playlistCard">
+                <div class="card-header">
+                    <h3 id="playlistTitle">Your Playlist</h3>
+                    <button class="close-btn" onclick="closePlaylist()">×</button>
+                </div>
+                <div class="playlist-content">
+                    <iframe id="playlistFrame" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-hearts"></div>
+    <script src="script.js"></script>
+</body>
+</html>
