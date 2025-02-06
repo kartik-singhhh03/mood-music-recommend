@@ -2,7 +2,7 @@
 const playlists = {
     happy: {
         title: "Happy Vibes ✨",
-        url: "https://youtube.com/playlist?list=PLgzTt0k8mXzF2fleyxQ17JxeccHFC8Gxp&si=6zFX1NYCUaEqyZcY"
+        url: "https://youtu.be/ekr2nIex040?si=zxYH8tY1Ud-1UwNu"
     },
     romantic: {
         title: "Romantic Dreams 💝",
